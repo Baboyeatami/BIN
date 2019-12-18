@@ -1,0 +1,352 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.18-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema `bin`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `bin`;
+USE `bin`;
+
+--
+-- Table structure for table `bin`.`barangaystats`
+--
+
+DROP TABLE IF EXISTS `barangaystats`;
+CREATE TABLE `barangaystats` (
+  `idBarangayStats` int(10) unsigned NOT NULL auto_increment,
+  `Name` varchar(100) NOT NULL default '',
+  `InformantNumber` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`idBarangayStats`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bin`.`barangaystats`
+--
+
+/*!40000 ALTER TABLE `barangaystats` DISABLE KEYS */;
+INSERT INTO `barangaystats` (`idBarangayStats`,`Name`,`InformantNumber`) VALUES 
+ (1,'Balasinon',2),
+ (2,'Buguis',2),
+ (3,'Carre',2),
+ (4,'Clib',2),
+ (5,'Harada Butai',1),
+ (6,'Katipunan',1),
+ (7,'Kiblagon',0),
+ (8,'Labon',0),
+ (9,'Laperas',0),
+ (10,'Lapla',0),
+ (11,'Litos',1),
+ (12,'Luparan',0),
+ (13,'Mckinley',0),
+ (14,'New Cebu',0),
+ (15,'Osmeña',0),
+ (16,'Palili',0),
+ (17,'Parame',0),
+ (18,'Poblacion',1),
+ (19,'Roxas',0),
+ (20,'Solongvale',0),
+ (21,'Tagolilong',0),
+ (22,'Tala-o',0),
+ (23,'Talas',0),
+ (24,'Tanwalang',0),
+ (25,'Waterfall',0);
+/*!40000 ALTER TABLE `barangaystats` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `bin`.`child`
+--
+
+DROP TABLE IF EXISTS `child`;
+CREATE TABLE `child` (
+  `idChild` int(10) unsigned NOT NULL auto_increment,
+  `Name` varchar(255) NOT NULL default '',
+  `Bdate` varchar(55) default NULL,
+  `Father_ID` varchar(45) NOT NULL default '',
+  PRIMARY KEY  (`idChild`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bin`.`child`
+--
+
+/*!40000 ALTER TABLE `child` DISABLE KEYS */;
+INSERT INTO `child` (`idChild`,`Name`,`Bdate`,`Father_ID`) VALUES 
+ (1,'Morgan','','76'),
+ (3,'Cathay','July 26, 1999','80');
+/*!40000 ALTER TABLE `child` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `bin`.`informant_info`
+--
+
+DROP TABLE IF EXISTS `informant_info`;
+CREATE TABLE `informant_info` (
+  `idInformant_info` bigint(20) unsigned NOT NULL auto_increment,
+  `F_Name` varchar(55) NOT NULL default '',
+  `M_Name` varchar(55) NOT NULL default '',
+  `L_Name` varchar(55) NOT NULL default '',
+  `Age` varchar(45) NOT NULL default '',
+  `Nationality` varchar(45) NOT NULL default '',
+  `Religion` varchar(45) NOT NULL default '',
+  `Mar_status` varchar(45) NOT NULL default '',
+  `Education` varchar(85) NOT NULL default '',
+  `Alias` varchar(45) NOT NULL default '',
+  `Place_Birth` varchar(45) NOT NULL default '',
+  `P_Adrress` varchar(60) NOT NULL default '',
+  `Per_Adrress` varchar(60) NOT NULL default '',
+  `Zipcode` varchar(45) NOT NULL default '',
+  `S_Codification` varchar(45) NOT NULL default '',
+  `Status` varchar(45) NOT NULL default '',
+  `B_PAdrress` varchar(45) NOT NULL default '',
+  `B_PreAdress` varchar(45) NOT NULL default '',
+  `Face` varchar(45) NOT NULL default '',
+  `Hair` varchar(45) NOT NULL default '',
+  `Complexion` varchar(45) NOT NULL default '',
+  `Eyes` varchar(45) NOT NULL default '',
+  `Build` varchar(45) NOT NULL default '',
+  `Body` varchar(45) NOT NULL default '',
+  `Gen_App` varchar(45) NOT NULL default '',
+  `Iden_Char` varchar(80) NOT NULL default '',
+  `Height` varchar(45) NOT NULL default '',
+  `Mel_Service` varchar(60) NOT NULL default '',
+  `Other_Org` varchar(60) NOT NULL default '',
+  `F_Training` varchar(60) NOT NULL default '',
+  `Employement` varchar(60) NOT NULL default '',
+  `Position` varchar(45) NOT NULL default '',
+  `N_Employer` varchar(80) NOT NULL default '',
+  `TerminationDate` varchar(45) NOT NULL default '',
+  `Mode_Con` varchar(45) NOT NULL default '',
+  `Mob_no` varchar(45) NOT NULL default '',
+  `Email` varchar(60) NOT NULL default '',
+  `P_Con` varchar(80) NOT NULL default '',
+  `P_Con_num` varchar(60) NOT NULL default '',
+  `EntryTime` varchar(45) NOT NULL default '',
+  `EntryDate` varchar(45) NOT NULL default '',
+  `PictureFilePath` longtext NOT NULL,
+  `CodeName` varchar(100) NOT NULL default '',
+  `Psedonym` varchar(100) NOT NULL default '',
+  `Handlers` varchar(60) NOT NULL default '',
+  `OperationProject` varchar(100) NOT NULL default '',
+  `SpouseName` varchar(100) NOT NULL default '',
+  `TINNR` varchar(100) NOT NULL default '',
+  `Gender` varchar(45) NOT NULL default '',
+  `Target` varchar(100) NOT NULL default '',
+  `D_Recuitment` date NOT NULL default '0000-00-00',
+  `B_Date` date default NULL,
+  `E_Time` time NOT NULL default '00:00:00',
+  `E_Date` date NOT NULL default '0000-00-00',
+  `Provice` varchar(255) NOT NULL default '',
+  `Threat` varchar(255) NOT NULL default '',
+  `Mun_City` varchar(255) NOT NULL default '',
+  `BirthCounty` varchar(255) NOT NULL default '',
+  `Type` varchar(255) NOT NULL default '',
+  `Category` varchar(255) NOT NULL default '',
+  `CriminalR` longtext NOT NULL,
+  `Spouse_Bdate` varchar(55) default NULL,
+  `IAPS_loc` varchar(255) NOT NULL default '',
+  `SDCSDS_loc` varchar(255) NOT NULL default '',
+  `infoType` varchar(55) NOT NULL default '',
+  PRIMARY KEY  (`idInformant_info`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bin`.`informant_info`
+--
+
+/*!40000 ALTER TABLE `informant_info` DISABLE KEYS */;
+INSERT INTO `informant_info` (`idInformant_info`,`F_Name`,`M_Name`,`L_Name`,`Age`,`Nationality`,`Religion`,`Mar_status`,`Education`,`Alias`,`Place_Birth`,`P_Adrress`,`Per_Adrress`,`Zipcode`,`S_Codification`,`Status`,`B_PAdrress`,`B_PreAdress`,`Face`,`Hair`,`Complexion`,`Eyes`,`Build`,`Body`,`Gen_App`,`Iden_Char`,`Height`,`Mel_Service`,`Other_Org`,`F_Training`,`Employement`,`Position`,`N_Employer`,`TerminationDate`,`Mode_Con`,`Mob_no`,`Email`,`P_Con`,`P_Con_num`,`EntryTime`,`EntryDate`,`PictureFilePath`,`CodeName`,`Psedonym`,`Handlers`,`OperationProject`,`SpouseName`,`TINNR`,`Gender`,`Target`,`D_Recuitment`,`B_Date`,`E_Time`,`E_Date`,`Provice`,`Threat`,`Mun_City`,`BirthCounty`,`Type`,`Category`,`CriminalR`,`Spouse_Bdate`,`IAPS_loc`,`SDCSDS_loc`,`infoType`) VALUES 
+ (72,'Jamie Eduardo ','Capuyan','Rosal','25','Filipino','RC','Single','College','Jamie','Digos City','','','8009','asdasdasdasd','Active','Balasinon','Select  Barangay','','','','','','','','','','','','','','','','','','','','','','12:27:10','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/Jamie Eduardo RosalCapuyan.jpg','','','','','N/A','','MALE','','2015-01-01','1990-12-08','12:27:10','2015-09-10','Davao Del Sur','','Sulop','Philippines','','','',NULL,'','',''),
+ (73,'Alexis John ','V','Ayo','25','Filipino','INC','Single','College','asdasd','Digos','','','8009','asdasd','Active','Clib','Select  Barangay','','','','','','','','','','','','','','','','','','','','','','12:31:24','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/Alexis John AyoV.jpg','','','','','','','MALE','','2015-02-02','1990-06-06','12:31:24','2015-09-10','Davao del sur','','Sulop','Philippines','','','',NULL,'','','');
+INSERT INTO `informant_info` (`idInformant_info`,`F_Name`,`M_Name`,`L_Name`,`Age`,`Nationality`,`Religion`,`Mar_status`,`Education`,`Alias`,`Place_Birth`,`P_Adrress`,`Per_Adrress`,`Zipcode`,`S_Codification`,`Status`,`B_PAdrress`,`B_PreAdress`,`Face`,`Hair`,`Complexion`,`Eyes`,`Build`,`Body`,`Gen_App`,`Iden_Char`,`Height`,`Mel_Service`,`Other_Org`,`F_Training`,`Employement`,`Position`,`N_Employer`,`TerminationDate`,`Mode_Con`,`Mob_no`,`Email`,`P_Con`,`P_Con_num`,`EntryTime`,`EntryDate`,`PictureFilePath`,`CodeName`,`Psedonym`,`Handlers`,`OperationProject`,`SpouseName`,`TINNR`,`Gender`,`Target`,`D_Recuitment`,`B_Date`,`E_Time`,`E_Date`,`Provice`,`Threat`,`Mun_City`,`BirthCounty`,`Type`,`Category`,`CriminalR`,`Spouse_Bdate`,`IAPS_loc`,`SDCSDS_loc`,`infoType`) VALUES 
+ (74,'Honey May ',' ','Lumen','25','Filipino','RC','Single','College','Lumens','digos','','','8009','asdasd','Active','Katipunan','Select  Barangay','','','Select Complexion','','','','','','','','','','','','','','','','','','','12:34:20','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/Honey May Lumen .jpg','','','','','N/A','','FEMALE','','2015-03-03','1990-07-10','12:34:20','2015-09-10','Davao Del Sur','','Sulop','Philippines','','','','','','',''),
+ (75,'Hansel Jay','C','Grengia','25','Filipino','RC','Single','College','asdasd','Dulangan','','','8009','asdasd','Active','Harada Butai','Select  Barangay','','','Select Complexion','','','','','','','','','','','','','','CP','0932161321','','','','12:37:50','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/Hansel JayGrengiaC.jpg','','','','','N/A','','MALE','','2015-03-18','1990-04-18','12:37:50','2015-09-10','Davao Del Sur','','Sulop','Philippines','','','','','','','');
+INSERT INTO `informant_info` (`idInformant_info`,`F_Name`,`M_Name`,`L_Name`,`Age`,`Nationality`,`Religion`,`Mar_status`,`Education`,`Alias`,`Place_Birth`,`P_Adrress`,`Per_Adrress`,`Zipcode`,`S_Codification`,`Status`,`B_PAdrress`,`B_PreAdress`,`Face`,`Hair`,`Complexion`,`Eyes`,`Build`,`Body`,`Gen_App`,`Iden_Char`,`Height`,`Mel_Service`,`Other_Org`,`F_Training`,`Employement`,`Position`,`N_Employer`,`TerminationDate`,`Mode_Con`,`Mob_no`,`Email`,`P_Con`,`P_Con_num`,`EntryTime`,`EntryDate`,`PictureFilePath`,`CodeName`,`Psedonym`,`Handlers`,`OperationProject`,`SpouseName`,`TINNR`,`Gender`,`Target`,`D_Recuitment`,`B_Date`,`E_Time`,`E_Date`,`Provice`,`Threat`,`Mun_City`,`BirthCounty`,`Type`,`Category`,`CriminalR`,`Spouse_Bdate`,`IAPS_loc`,`SDCSDS_loc`,`infoType`) VALUES 
+ (76,'Raffy',' ','Madula','25','Filipino','RC','Single','College','Bayot','Digos','Conte sub','','8009','asdasd','Active','Poblacion','Select  Barangay','','','Select Complexion','','','','','','','','','','','','','','Cellphone','019230192309','Gmail.com','Ante','0909109','12:39:39','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/RaffyMadula .jpg','','','','','','','MALE','','2015-04-13','1990-11-09','12:39:39','2015-09-10','Davao del sur','','Sulop','Philippines','','','','','','',''),
+ (77,'Darel Francis','N','Ramos','25','Filipino','RC','Single','','bai','Digos','','','8009','asdasd','Active','Carre','Select  Barangay','','','Dark','','','','','','','','','','','','','','','','','','','12:43:04','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/Darel FrancisRamosN.jpg','','','','','N/A','','MALE','','2015-07-13','1990-02-15','12:43:04','2015-09-10','Davao Del Sur','','Sulop','Philippines','','','','','','','');
+INSERT INTO `informant_info` (`idInformant_info`,`F_Name`,`M_Name`,`L_Name`,`Age`,`Nationality`,`Religion`,`Mar_status`,`Education`,`Alias`,`Place_Birth`,`P_Adrress`,`Per_Adrress`,`Zipcode`,`S_Codification`,`Status`,`B_PAdrress`,`B_PreAdress`,`Face`,`Hair`,`Complexion`,`Eyes`,`Build`,`Body`,`Gen_App`,`Iden_Char`,`Height`,`Mel_Service`,`Other_Org`,`F_Training`,`Employement`,`Position`,`N_Employer`,`TerminationDate`,`Mode_Con`,`Mob_no`,`Email`,`P_Con`,`P_Con_num`,`EntryTime`,`EntryDate`,`PictureFilePath`,`CodeName`,`Psedonym`,`Handlers`,`OperationProject`,`SpouseName`,`TINNR`,`Gender`,`Target`,`D_Recuitment`,`B_Date`,`E_Time`,`E_Date`,`Provice`,`Threat`,`Mun_City`,`BirthCounty`,`Type`,`Category`,`CriminalR`,`Spouse_Bdate`,`IAPS_loc`,`SDCSDS_loc`,`infoType`) VALUES 
+ (78,'Cow',' ','wow','52','Filipino','Rc','Single','','WOWOW','asdasd','','','8009','asdasd','Active','Balasinon','Select  Barangay','','','Select Complexion','','','','','','','','','','','','','','','','','','','12:47:55','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/Cowwow .jpg','','','','','N/A','','MALE','','2015-09-14','1963-07-18','12:47:55','2015-09-10','Davao Del Sur','','Sulop','Philippines','','','','','','',''),
+ (79,'Dog','Dog','Dog','35','Filipino','RC','Single','','asdasd','asdasda','','','8009','asdasd','Active','Carre','Select  Barangay','','','Dark','','','','','','','','','','','','','','','','','','','12:55:02','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/DogDogDog.jpg','','','','','N/A','','MALE','','2015-01-06','1980-12-31','12:55:02','2015-09-10','Davao Del Sur','','Sulop','Philippines','','','','','','','');
+INSERT INTO `informant_info` (`idInformant_info`,`F_Name`,`M_Name`,`L_Name`,`Age`,`Nationality`,`Religion`,`Mar_status`,`Education`,`Alias`,`Place_Birth`,`P_Adrress`,`Per_Adrress`,`Zipcode`,`S_Codification`,`Status`,`B_PAdrress`,`B_PreAdress`,`Face`,`Hair`,`Complexion`,`Eyes`,`Build`,`Body`,`Gen_App`,`Iden_Char`,`Height`,`Mel_Service`,`Other_Org`,`F_Training`,`Employement`,`Position`,`N_Employer`,`TerminationDate`,`Mode_Con`,`Mob_no`,`Email`,`P_Con`,`P_Con_num`,`EntryTime`,`EntryDate`,`PictureFilePath`,`CodeName`,`Psedonym`,`Handlers`,`OperationProject`,`SpouseName`,`TINNR`,`Gender`,`Target`,`D_Recuitment`,`B_Date`,`E_Time`,`E_Date`,`Provice`,`Threat`,`Mun_City`,`BirthCounty`,`Type`,`Category`,`CriminalR`,`Spouse_Bdate`,`IAPS_loc`,`SDCSDS_loc`,`infoType`) VALUES 
+ (80,'cat','cat','cat','65','Filipino','RC','Single','','asdasd','asdasd','','','8009','asdasd','Active','Litos','Select  Barangay','','','Dark','','','','','','','','','','','','','','','','','','','01:06:36','2015/09/10','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/BIN_PIC/catcatcat.jpg','','','PO3 TELMO','','N/A','','MALE','','2015-09-23','1950-08-25','01:06:36','2015-09-10','Davao Del Sur','','Sulop','Philippines','','','','','','',''),
+ (81,'Java','Java','java','','','','','','asdasd','','','','','','','Buguis','','','','','','','','','asdasd','','','','','','','','','','','','','','','','','','','','','','','','','2015-09-30',NULL,'03:35:09','2015-09-10','','','','','','','',NULL,'C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/legacy/JavajavaJavaIAPS.jpg','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/legacy/JavajavaJavaSDCSCS.jpg','Legacy');
+INSERT INTO `informant_info` (`idInformant_info`,`F_Name`,`M_Name`,`L_Name`,`Age`,`Nationality`,`Religion`,`Mar_status`,`Education`,`Alias`,`Place_Birth`,`P_Adrress`,`Per_Adrress`,`Zipcode`,`S_Codification`,`Status`,`B_PAdrress`,`B_PreAdress`,`Face`,`Hair`,`Complexion`,`Eyes`,`Build`,`Body`,`Gen_App`,`Iden_Char`,`Height`,`Mel_Service`,`Other_Org`,`F_Training`,`Employement`,`Position`,`N_Employer`,`TerminationDate`,`Mode_Con`,`Mob_no`,`Email`,`P_Con`,`P_Con_num`,`EntryTime`,`EntryDate`,`PictureFilePath`,`CodeName`,`Psedonym`,`Handlers`,`OperationProject`,`SpouseName`,`TINNR`,`Gender`,`Target`,`D_Recuitment`,`B_Date`,`E_Time`,`E_Date`,`Provice`,`Threat`,`Mun_City`,`BirthCounty`,`Type`,`Category`,`CriminalR`,`Spouse_Bdate`,`IAPS_loc`,`SDCSDS_loc`,`infoType`) VALUES 
+ (82,'java','Java','Java','','','','','','asdasd','','','','','','','Clib','','','','','','','','','asdasd','','','','','','','','','','','','','','','','','','','','','','','','','2015-09-17',NULL,'04:26:09','2015-09-10','','','','','','','',NULL,'C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/legacy/javaJavaJavaIAPS.jpg','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/legacy/javaJavaJavaSDCSCS.jpg','Legacy'),
+ (83,'java','Java','Java','','','','','','asdasd','','','','','','','Buguis','','','','','','','','','asdasd','','','','','','','','','','','','','','','','','','','','','','','','','2015-06-11',NULL,'04:27:37','2015-09-10','','','','','','','',NULL,'C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/legacy/javaJavaJavaIAPS.jpg','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/legacy/javaJavaJavaSDCSCS.jpg','Legacy');
+INSERT INTO `informant_info` (`idInformant_info`,`F_Name`,`M_Name`,`L_Name`,`Age`,`Nationality`,`Religion`,`Mar_status`,`Education`,`Alias`,`Place_Birth`,`P_Adrress`,`Per_Adrress`,`Zipcode`,`S_Codification`,`Status`,`B_PAdrress`,`B_PreAdress`,`Face`,`Hair`,`Complexion`,`Eyes`,`Build`,`Body`,`Gen_App`,`Iden_Char`,`Height`,`Mel_Service`,`Other_Org`,`F_Training`,`Employement`,`Position`,`N_Employer`,`TerminationDate`,`Mode_Con`,`Mob_no`,`Email`,`P_Con`,`P_Con_num`,`EntryTime`,`EntryDate`,`PictureFilePath`,`CodeName`,`Psedonym`,`Handlers`,`OperationProject`,`SpouseName`,`TINNR`,`Gender`,`Target`,`D_Recuitment`,`B_Date`,`E_Time`,`E_Date`,`Provice`,`Threat`,`Mun_City`,`BirthCounty`,`Type`,`Category`,`CriminalR`,`Spouse_Bdate`,`IAPS_loc`,`SDCSDS_loc`,`infoType`) VALUES 
+ (84,'java','Java','Java','','','','','','asdasd','','','','','','','Buguis','','','','','','','','','asdasd','','','','','','','','','','','','','','','','','','','','','','','','','2015-09-22',NULL,'04:30:00','2015-09-10','','','','','','','',NULL,'C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/legacy/javaJavaJavaIAPS.jpg','C:/Users/JAMIEXXX3/Documents/NetBeansProjects/BIN/legacy/javaJavaJavaSDCSCS.jpg','Legacy');
+/*!40000 ALTER TABLE `informant_info` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `bin`.`logs`
+--
+
+DROP TABLE IF EXISTS `logs`;
+CREATE TABLE `logs` (
+  `idlogs` int(10) unsigned NOT NULL auto_increment,
+  `Act` varchar(255) NOT NULL default '',
+  `Time` time NOT NULL default '00:00:00',
+  `Date` date NOT NULL default '0000-00-00',
+  PRIMARY KEY  (`idlogs`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bin`.`logs`
+--
+
+/*!40000 ALTER TABLE `logs` DISABLE KEYS */;
+INSERT INTO `logs` (`idlogs`,`Act`,`Time`,`Date`) VALUES 
+ (941,'Logout adminSystem Close','12:01:44','2015-09-10'),
+ (942,'Login admin','12:01:53','2015-09-10'),
+ (943,'Logout adminSystem Close','12:32:16','2015-09-10'),
+ (944,'Login admin','12:32:37','2015-09-10'),
+ (945,'Logout adminSystem Close','12:34:36','2015-09-10'),
+ (946,'Login admin','12:35:22','2015-09-10'),
+ (947,'Logout adminSystem Close','12:40:01','2015-09-10'),
+ (948,'Login admin','12:40:44','2015-09-10'),
+ (949,'Logout adminSystem Close','12:43:12','2015-09-10'),
+ (950,'Login admin','12:44:45','2015-09-10'),
+ (951,'Logout adminSystem Close','12:48:04','2015-09-10'),
+ (952,'Login admin','12:52:49','2015-09-10'),
+ (953,'Logout adminSystem Close','12:55:55','2015-09-10'),
+ (954,'Logout System Close','12:59:23','2015-09-10'),
+ (955,'Login admin','01:02:32','2015-09-10'),
+ (956,'ABS print date From January 1, 2015 to December 31, 2015','01:07:51','2015-09-10'),
+ (957,'Print Seach Data Alias Pattern as','01:08:43','2015-09-10'),
+ (958,'IAPS print ID number 79','01:11:13','2015-09-10');
+INSERT INTO `logs` (`idlogs`,`Act`,`Time`,`Date`) VALUES 
+ (959,'SDC SDS print ID number 79','01:11:22','2015-09-10'),
+ (960,'Print Seach Data First Name Pattern a','01:15:19','2015-09-10'),
+ (961,'Print barangay statistic','01:16:18','2015-09-10'),
+ (962,'Print barangay statistic','01:16:46','2015-09-10'),
+ (963,'Print barangay statistic from September 1, 2015 to September 30, 2015 ','01:17:01','2015-09-10'),
+ (964,'Print Seach Data First Name Pattern ra','01:21:02','2015-09-10'),
+ (965,'Logout adminSystem Close','01:30:33','2015-09-10'),
+ (966,'Login admin','03:06:15','2015-09-10'),
+ (967,'Print Seach Data Alias Pattern asd','03:07:09','2015-09-10'),
+ (968,'Print Seach Data Alias Pattern asd','03:07:17','2015-09-10'),
+ (969,'Print Seach Data First Name Pattern a','03:07:28','2015-09-10'),
+ (970,'Print Seach Data Alias Pattern a','03:07:39','2015-09-10'),
+ (971,'Print Seach Data Alias Pattern a','03:07:56','2015-09-10'),
+ (972,'Print Seach Data Middle Name Pattern a','03:08:08','2015-09-10'),
+ (973,'Print Seach Data Identifying Marks Pattern a','03:08:19','2015-09-10');
+INSERT INTO `logs` (`idlogs`,`Act`,`Time`,`Date`) VALUES 
+ (974,'Print Seach Data Civil Status Pattern s','03:08:25','2015-09-10'),
+ (975,'Logout adminSystem Close','03:08:46','2015-09-10'),
+ (976,'Login admin','03:12:33','2015-09-10'),
+ (977,'Print Seach Data Alias Pattern a','03:12:47','2015-09-10'),
+ (978,'Print Seach Data First Name Pattern a','03:12:51','2015-09-10'),
+ (979,'Logout adminSystem Close','03:13:27','2015-09-10'),
+ (980,'Login admin','03:16:58','2015-09-10'),
+ (981,'Print Seach Data Alias Pattern a','03:18:43','2015-09-10'),
+ (982,'Print Seach Data Alias Pattern a','03:18:50','2015-09-10'),
+ (983,'Logout adminSystem Close','03:19:20','2015-09-10'),
+ (984,'Login admin','03:21:09','2015-09-10'),
+ (985,'Print Seach Data Alias Pattern a','03:22:18','2015-09-10'),
+ (986,'Logout adminSystem Close','03:24:25','2015-09-10'),
+ (987,'Login admin','03:34:06','2015-09-10'),
+ (988,'Print Seach Data Alias Pattern a','03:36:15','2015-09-10'),
+ (989,'Print Seach Data Identifying Marks Pattern a','03:36:37','2015-09-10'),
+ (990,'Print Seach Data Identifying Marks Pattern a','03:37:06','2015-09-10');
+INSERT INTO `logs` (`idlogs`,`Act`,`Time`,`Date`) VALUES 
+ (991,'Print Seach Data Middle Name Pattern a','03:37:12','2015-09-10'),
+ (992,'Print Seach Data Civil Status Pattern single','03:41:47','2015-09-10'),
+ (993,'ABS print date From September 1, 2015 to September 30, 2015','03:42:53','2015-09-10'),
+ (994,'ABS print date From September 1, 2015 to September 30, 2015','03:43:11','2015-09-10'),
+ (995,'ABS print date From September 1, 2015 to September 30, 2015','03:43:20','2015-09-10'),
+ (996,'ABS print date From September 1, 2015 to September 30, 2015','03:48:42','2015-09-10'),
+ (997,'IAPS print ID number 78','03:50:03','2015-09-10'),
+ (998,'SDC SDS print ID number 78','03:50:20','2015-09-10'),
+ (999,'Print barangay statistic','03:50:34','2015-09-10'),
+ (1000,'Print barangay statistic from September 1, 2015 to September 30, 2015 ','03:50:39','2015-09-10'),
+ (1001,'Logout adminSystem Close','04:12:17','2015-09-10'),
+ (1002,'Login admin','04:25:11','2015-09-10'),
+ (1003,'Logout adminSystem Close','04:28:07','2015-09-10'),
+ (1004,'Login admin','04:29:22','2015-09-10');
+INSERT INTO `logs` (`idlogs`,`Act`,`Time`,`Date`) VALUES 
+ (1005,'Logout adminSystem Close','04:30:48','2015-09-10'),
+ (1006,'Login admin','04:32:47','2015-09-10'),
+ (1007,'Logout adminSystem Close','04:34:08','2015-09-10');
+/*!40000 ALTER TABLE `logs` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `bin`.`opisinfo`
+--
+
+DROP TABLE IF EXISTS `opisinfo`;
+CREATE TABLE `opisinfo` (
+  `idOpisInfo` int(10) unsigned NOT NULL auto_increment,
+  `region` varchar(45) NOT NULL default '',
+  `op_add` varchar(45) NOT NULL default '',
+  `telephone` varchar(45) NOT NULL default '',
+  `oic` varchar(45) NOT NULL default '',
+  `rank` varchar(45) NOT NULL default '',
+  `h_e` varchar(45) NOT NULL default '',
+  `ele` varchar(45) NOT NULL default '',
+  `career_sc` varchar(45) NOT NULL default '',
+  PRIMARY KEY  (`idOpisInfo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bin`.`opisinfo`
+--
+
+/*!40000 ALTER TABLE `opisinfo` DISABLE KEYS */;
+INSERT INTO `opisinfo` (`idOpisInfo`,`region`,`op_add`,`telephone`,`oic`,`rank`,`h_e`,`ele`,`career_sc`) VALUES 
+ (1,'Sulop Municipal Pulis Station','Sulop','123123','Raffy Madula,ECE','FB Sulop MPS','GMAIL','PRC','USEP- MEP ECE');
+/*!40000 ALTER TABLE `opisinfo` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `bin`.`useracc`
+--
+
+DROP TABLE IF EXISTS `useracc`;
+CREATE TABLE `useracc` (
+  `idUserAcc` int(10) unsigned NOT NULL auto_increment,
+  `Fname` varchar(45) NOT NULL default '',
+  `Lname` varchar(45) NOT NULL default '',
+  `Mname` varchar(45) NOT NULL default '',
+  `Pass` varchar(45) NOT NULL default '',
+  `Username` varchar(45) NOT NULL default '',
+  `date` date NOT NULL default '0000-00-00',
+  `time` time NOT NULL default '00:00:00',
+  `type` varchar(45) NOT NULL default '',
+  PRIMARY KEY  (`idUserAcc`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bin`.`useracc`
+--
+
+/*!40000 ALTER TABLE `useracc` DISABLE KEYS */;
+INSERT INTO `useracc` (`idUserAcc`,`Fname`,`Lname`,`Mname`,`Pass`,`Username`,`date`,`time`,`type`) VALUES 
+ (1,'admin','admin','admin','admin','admin','0000-00-00','00:00:00','admin'),
+ (2,'Jamie Eduardo','C.','Rosal','1234','jamie','2015-08-27','07:53:57','user'),
+ (4,'hahaasdasd','hahahasdas','hahadasdasd','haha','hahah','2015-09-09','02:58:28','user');
+/*!40000 ALTER TABLE `useracc` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

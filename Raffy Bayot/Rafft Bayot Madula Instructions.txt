@@ -1,0 +1,2 @@
+Change the serverIP.txt from localhost to the ip address of your server 
+and try to disable the firewall 
